@@ -1,6 +1,6 @@
 angular.module('app',[])
     // регистрация сервиса в приложении
-    .service('todoStore', /* конструктор сервиса */)
+    .service('todoStore',/* конструктор сервиса */)
     // регистрация компонента в приложении
     .directive('todoList', function(){
         return {
