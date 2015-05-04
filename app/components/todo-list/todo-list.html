@@ -1,3 +1,54 @@
-<p>
-    hello from todo-list component!
-</p>
+<div class="todo">
+    <div class="todo__window">
+        <div class="todo__window-header">
+            <h1 class="todo__window-header-text">TodoApp</h1>
+            <!-- Фильтр задач -->
+            <div class="todo-filter">
+                <label class="todo-filter__item">
+                    <input type="radio"
+                           value="todo"
+                           name="todo-filter"
+                           class="todo-filter__input"><span class="todo-filter__text">todo</span>
+                </label>
+                <label class="todo-filter__item">
+                    <input type="radio"
+                           value="done"
+                           name="todo-filter"
+                           class="todo-filter__input"><span class="todo-filter__text">done</span>
+                </label>
+                <label class="todo-filter__item">
+                    <input type="radio"
+                           value="all"
+                           name="todo-filter"
+                           class="todo-filter__input"><span class="todo-filter__text">all</span>
+                </label>
+            </div>
+        </div>
+        <div class="todo__window-body">
+            <!-- Список задач -->
+            <ul class="todo__list">
+                <li ng-repeat="todo in vm.todos track by todo.id">
+                    <div class="todo-item">
+                        <input type="checkbox"  class="todo-item__input"><span class="todo-item__text">{{todo.title}}</span>
+                    </div>
+                    <a href="" class="todo-del"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="todo__window-footer">
+            <!-- Форма создания новой задачи -->
+            <form ng-submit="vm.create()" class="control-container">
+                <div class="control-container__input">
+                    <input type="text"
+                           ng-model="vm.newTodoTitle"
+                           placeholder = "New task"
+                           class="new-todo-input">
+                </div>
+                <div class="control-container__submit">
+                    <!-- Кнопка добавления задачи -->
+                    <button type="submit" class="add-new-todo"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -49,42 +49,22 @@
         <div class="todo__window-body">
           <!-- Список задач -->
           <ul class="todo__list">
-            <li class="todo__list-item">
+            <li ng-repeat="todo in vm.todos track by todo.id">
               <div class="todo-item">
-                <input type="checkbox" checked class="todo-item__input">
-                <!-- Название самой задачи здесь -->
-                <span class="todo-item__text">Купить масло</span>
+                <input type="checkbox"  class="todo-item__input"><span class="todo-item__text">{{todo.title}}</span>
               </div>
-              <!-- Кнопка удаления задачи -->
               <a href="" class="todo-del"></a>
-            </li>
-            <li class="todo__list-item">
-              <div class="todo-item">
-                <input type="checkbox"  class="todo-item__input"><span class="todo-item__text">Оплатить коммуналку</span>
-              </div><a href="" class="todo-del"></a>
-            </li>
-            <li class="todo__list-item">
-              <div class="todo-item">
-                <input type="checkbox" class="todo-item__input"><span class="todo-item__text">Подготовить материал для стажеров</span>
-              </div><a href="" class="todo-del"></a>
-            </li>
-            <li class="todo__list-item">
-              <div class="todo-item">
-                <input type="checkbox" class="todo-item__input"><span class="todo-item__text">Какой-нибудь довольно длинный текст, чтобы посмотреть как оно будет</span>
-              </div><a href="" class="todo-del"></a>
-            </li>
-            <li class="todo__list-item">
-              <div class="todo-item">
-                <input type="checkbox" class="todo-item__input"><span class="todo-item__text">Заверстать тудушник</span>
-              </div><a href="" class="todo-del"></a>
             </li>
           </ul>
         </div>
         <div class="todo__window-footer">
           <!-- Форма создания новой задачи -->
-          <form class="control-container">
+          <form ng-submit="vm.create()" class="control-container">
             <div class="control-container__input">
-              <input type="text" placeholder="Новая задача" class="new-todo-input">
+              <input type="text"
+                     ng-model="vm.newTodoTitle"
+                     placeholder = "New task"
+                     class="new-todo-input">
             </div>
             <div class="control-container__submit">
               <!-- Кнопка добавления задачи -->
